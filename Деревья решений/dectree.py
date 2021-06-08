@@ -8,26 +8,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 #%% Load data
-'''
-data = pd.read_csv('../Data/mushrooms.csv')
-target = data['class']
-del data['class']
-'''
 
-'''
-winequality-red.csv - Red Wine Quality
-'''
 data = pd.read_csv('../Data/winequality-red.csv')
 target = data['quality']
 del data['quality']
 
 #%% Process data
-'''
-v = DictVectorizer(sparse=False)
-X = v.fit_transform(data.to_dict('records'))
-y = target.replace({'p': 1, 'e': 0})
-'''
-
 X = data
 y = (target > 6).astype(int)
 
@@ -59,7 +45,7 @@ for split in splits:
     #plot_tree(clf, filled = True, feature_names = v.get_feature_names(), ax = ax[i])
     plot_tree(clf, filled = True, feature_names = X.columns, ax = ax[i])
 
-#plt.savefig('trees.png')
+plt.savefig('trees.png')
 plt.show()    
 
 #%% Metrics
@@ -89,7 +75,7 @@ ax[1, 1].legend(['Train set', 'Test set'])
 ax[1, 1].set_title('F1')
 ax[1, 1].set(xlabel = 'Train set fraction', ylabel = 'F1')
 
-#plt.savefig('metrics.png')
+plt.savefig('metrics.png')
 plt.show()
 
 #%% Save metrics

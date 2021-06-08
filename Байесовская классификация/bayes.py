@@ -9,16 +9,10 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 #%% Load data
 
-'''
-mushrooms.csv - Mushroom Classification
-'''
 data1 = pd.read_csv('../Data/mushrooms.csv')
 target1 = data1['class']
 del data1['class']
 
-'''
-winequality-red.csv - Red Wine Quality
-'''
 data2 = pd.read_csv('../Data/winequality-red.csv')
 target2 = data2['quality']
 del data2['quality']
